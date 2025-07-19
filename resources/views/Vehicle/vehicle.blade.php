@@ -85,83 +85,104 @@
     </div>
 </div>
 
-<div class="modal fade" id="formModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+<div class="modal fade" id="formModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Add Vehicle</h5>
-                <button type="button" class="btn-close raised" data-bs-dismiss="modal" aria-label="Close">
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <span id="form_result"></span>
-                        <form action="{{url('vehicle')}}" method="POST" id="formTitle" class="form-horizontal" enctype="multipart/form-data">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Vehicle Name</label>
-                                <input type="text" class="form-control" id="vehicle_name" name="vehicle_name" placeholder="Vehicle Name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Vehicle Number</label>
-                                <input type="text" class="form-control" id="vehicle_num" name="vehicle_num" placeholder="PL 9965">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Price Per KM</label>
-                                <input type="text" class="form-control" id="price_per_km" name="price_per_km" placeholder="Rs : 100">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Fuel Type</label>
-                                <input type="text" class="form-control" id="fuel_type" name="fuel_type" placeholder="Fuel Type">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Model Year</label>
-                                <input type="text" class="form-control" id="model_year" name="model_year" placeholder="2015">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Seating Capacity</label>
-                                <input type="text" class="form-control" id="seating_capacity" name="seating_capacity" placeholder="5">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Air Conditioner</label>
-                                <input type="text" class="form-control" id="air_conditioner" name="air_conditioner" placeholder="Yes / No">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Air Bags</label>
-                                <input type="text" class="form-control" id="air_bags" name="air_bags" placeholder="Yes / No">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Anti-lock Braking System (ABS)</label>
-                                <input type="text" class="form-control" id="antilock_braking_system" name="antilock_braking_system" placeholder="Yes / No">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Power Windows</label>
-                                <input type="text" class="form-control" id="power_windows" name="power_windows" placeholder="Yes / No">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">CD Player</label>
-                                <input type="text" class="form-control" id="cd_player" name="cd_player" placeholder="Yes / No">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlInput1" class="form-label">Vehicle Available</label>
-                                <input type="text" class="form-control" id="car_availability" name="car_availability" placeholder="Yes / No">
-                            </div> 
-                            <div class="form-group mt-3">
-                                <button type="submit" name="action_button" id="action_button"
-                                    class="btn btn-primary btn-sm fa-pull-right px-4 raised"><i
-                                        class="fas fa-plus"></i>&nbsp;Add</button>
-                            </div>
-                            <input type="hidden" name="action" id="action" value="Add" />
-                            <input type="hidden" name="hidden_id" id="hidden_id" />
-                        </form>
+                <span id="form_result"></span>
+                <form action="{{ url('vehicle') }}" method="POST" id="formTitle" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row g-3 mb-2">
+                        <div class="col-md-3">
+                            <label class="form-label">Brand</label>
+                            <select name="brand" id="brand" class="form-select form-select-sm selecter2">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Model</label>
+                            <select name="model" id="model" class="form-select form-select-sm selecter2">
+                                <option value="">Select</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Vehicle Name</label>
+                            <input type="text" class="form-control" name="vehicle_name" placeholder="Vehicle Name">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Vehicle Number</label>
+                            <input type="text" class="form-control" name="vehicle_num" placeholder="PL 9965">
+                        </div>
                     </div>
-                </div>
+
+                    <div class="row g-3 mb-2">
+                        <div class="col-md-3">
+                            <label class="form-label">Price Per KM</label>
+                            <input type="text" class="form-control" name="price_per_km" placeholder="Rs: 100">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Fuel Type</label>
+                            <input type="text" class="form-control" name="fuel_type" placeholder="Petrol/Diesel">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Model Year</label>
+                            <input type="text" class="form-control" name="model_year" placeholder="2015">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Seating Capacity</label>
+                            <input type="text" class="form-control" name="seating_capacity" placeholder="5">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-2">
+                        <div class="col-md-3">
+                            <label class="form-label">Air Conditioner</label>
+                            <input type="checkbox" class="form-check-input" data-size="sm" checked data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="success" data-offstyle="danger">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Air Bags</label>
+                            <input type="text" class="form-control" name="air_bags" placeholder="Yes / No">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">ABS</label>
+                            <input type="text" class="form-control" name="antilock_braking_system" placeholder="Yes / No">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Power Windows</label>
+                            <input type="text" class="form-control" name="power_windows" placeholder="Yes / No">
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">CD Player</label>
+                            <input type="text" class="form-control" name="cd_player" placeholder="Yes / No">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Vehicle Available</label>
+                            <input type="text" class="form-control" name="car_availability" placeholder="Yes / No">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="action" value="Add" />
+                    <input type="hidden" name="hidden_id" />
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary btn-sm px-4">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
 @section('script')
 <script>
