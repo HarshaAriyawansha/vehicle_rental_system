@@ -87,6 +87,7 @@ Route::group(['middleware' => ['role:super-admin|admin']], function() {
     Route::get('/vehicleEdit/{id}', [VehicleController::class, 'edit'])->name('vehicleEdit');
     Route::post('/vehicleUpdate', [VehicleController::class, 'update'])->name('vehicleUpdate');
     Route::post('/vehicleDelete', [VehicleController::class, 'delete'])->name('vehicleDelete');
+    Route::get('/vehicle_model_list_sel2', [VehicleController::class, 'vehicle_model_list_sel2'])->name('vehicle_model_list_sel2');
 
     // Vehicle Booking Routes
     Route::get('/booking', [BookingController::class, 'index'])->name('booking');
