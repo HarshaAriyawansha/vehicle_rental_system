@@ -64,6 +64,13 @@
                 <!--<li class="breadcrumb-item active" aria-current="page">Vehicle</li>-->
                 <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-car fa-lg" style="color:rgb(57, 169, 255);"></i>&nbsp;Brand</li>
             </ol>
+
+        <!-- vehicle model management -->
+        @elseif(request()->route()->getName() == 'model')
+            <ol class="breadcrumb mb-0 p-0">
+                <!--<li class="breadcrumb-item active" aria-current="page">Vehicle</li>-->
+                <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-car fa-lg" style="color:rgb(57, 169, 255);"></i>&nbsp;Model</li>
+            </ol>
         
         <!-- Today -->
         <!-- vehicle name management -->

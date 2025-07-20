@@ -69,7 +69,7 @@
                                 <label class="form-label">Brand</label>
                                 <select name="brand" id="brand" class="form-select form-select-sm selecter2" onchange="loadModelTable(this.value);">
                                     <option value="">Select</option>
-                                     @foreach($brands as $brand)
+                                    @foreach($brands as $brand)
                                         <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
                                     @endforeach
                                 </select>
