@@ -1,15 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VehicleBrandController;
+use App\Http\Controllers\VehicleModelController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminDashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +73,13 @@ Route::group(['middleware' => ['role:super-admin|admin']], function() {
     Route::post('/brandUpdate', [VehicleBrandController::class, 'update'])->name('brandUpdate');
     Route::post('/brandDelete', [VehicleBrandController::class, 'delete'])->name('brandDelete');
 
+    // Vehicle mod Routes
+    Route::get('/model', [VehicleModelController::class, 'index'])->name('model');
+    Route::post('/model_insert', [VehicleModelController::class, 'store'])->name('model_insert');
+    Route::get('/model_edit/{id}', [VehicleModelController::class, 'edit'])->name('model_edit');
+    Route::post('/model_update', [VehicleModelController::class, 'update'])->name('model_update');
+    Route::post('/model_delete', [VehicleModelController::class, 'delete'])->name('model_delete');
+    Route::get('/get_model_by_brand/{id}', [VehicleModelController::class, 'get_model_by_brand'])->name('get_model_by_brand');
 
     // Vehicle Name Routes
     Route::get('/vehicle', [VehicleController::class, 'index'])->name('vehicle');
@@ -78,14 +88,6 @@ Route::group(['middleware' => ['role:super-admin|admin']], function() {
     Route::post('/vehicleUpdate', [VehicleController::class, 'update'])->name('vehicleUpdate');
     Route::post('/vehicleDelete', [VehicleController::class, 'delete'])->name('vehicleDelete');
 
-    /*Route::get('/vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
-    Route::post('/vehicleInsert', [VehicleController::class, 'store'])->name('vehicle.store');
-    Route::get('/vehicle/{id}/edit', [VehicleController::class, 'edit'])->name('vehicle.edit');
-    Route::put('/vehicle/{id}', [VehicleController::class, 'update'])->name('vehicle.update');
-    Route::delete('/vehicle/{id}', [VehicleController::class, 'delete'])->name('vehicle.delete');*/
-});
-
-Route::group(['middleware' => ['role:super-admin|admin']], function() {
     // Vehicle Booking Routes
     Route::get('/booking', [BookingController::class, 'index'])->name('booking');
     Route::post('/bookingInsert', [BookingController::class, 'store'])->name('bookingInsert');

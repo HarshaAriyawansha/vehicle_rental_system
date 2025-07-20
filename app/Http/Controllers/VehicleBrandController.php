@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
-use Validator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Brand;
+use Illuminate\Support\Facades\Validator;
 
 class VehicleBrandController extends Controller
 {

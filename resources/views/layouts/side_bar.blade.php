@@ -21,17 +21,6 @@
               <div class="menu-title">Dashboard</div>
             </a>
           </li>
-            @if(auth()->user()->can('view_user')
-            || auth()->user()->can('view_role')
-            || auth()->user()->can('view_permission'))
-          <li id="UserAccount">
-            <a href="{{ url('/users') }}">
-              <div class="parent-icon"><i class="fas fa-user-cog fa-lg"></i>
-              </div>
-              <div class="menu-title">User Account</div>
-            </a>
-          </li>
-          @endif
           @if(auth()->user()->can('view_brand')
             || auth()->user()->can('view_model')
             || auth()->user()->can('view_vehicle'))
@@ -44,7 +33,6 @@
           </li>
           @endif
 
-
          @if(auth()->user()->can('view_booking'))
           <li id="Booking">
             <a href="{{ url('/booking') }}">
@@ -53,6 +41,18 @@
                 <i class="fa-solid fa-book"></i>
               </div>
               <div class="menu-title">Booking</div>
+            </a>
+          </li>
+          @endif
+
+           @if(auth()->user()->can('view_user')
+            || auth()->user()->can('view_role')
+            || auth()->user()->can('view_permission'))
+          <li id="UserAccount">
+            <a href="{{ url('/users') }}">
+              <div class="parent-icon"><i class="fas fa-user-cog fa-lg"></i>
+              </div>
+              <div class="menu-title">User Account</div>
             </a>
           </li>
           @endif
