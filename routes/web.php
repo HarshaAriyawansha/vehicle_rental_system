@@ -13,6 +13,8 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminDashboardController;
 
+use App\Http\Controllers\WebController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +34,10 @@ use App\Http\Controllers\AdminDashboardController;
 
 Auth::routes();
 
-Route::get('/', [LoginController::class, 'index'])->name('showLoginForm');
+Route::get('/', [WebController::class, 'index']);
+Route::get('/vehical_details/{id}', [WebController::class, 'web_vehicle_detail']);
+
+Route::get('admin/', [LoginController::class, 'index'])->name('showLoginForm');
 
 
 Route::group(['middleware' => ['role:super-admin|admin']], function() {
